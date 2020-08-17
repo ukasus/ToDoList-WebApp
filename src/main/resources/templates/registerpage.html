@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"   href="css/MainCssFile.css"
+          th:href="@{css/MainCssFile.css}" media="screen"/>
+<meta charset="UTF-8">
+<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+ <link rel="shortcut icon" href="https://media-exp1.licdn.com/dms/image/C5103AQHy0cJj4HYarQ/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=wgiv6czSdUIERM86eUwQAc7_lG1KWl1gyU2h9HDU2LE">
+
+<title>Register Page</title>
+</head>
+<body>
+ <div id="div-input-form">
+                 <h2 id="login-signUp-heading">SignUp</h2>
+                <form action='/register' method="post">
+                <input type="text" name="firstName" placeholder="First Name" ></input><span class='errors' th:text="${firstName}"></span>
+                <input type="text" name="lastName" placeholder="Last Name" >
+                <input type="email"  name="email"  placeholder="Email">
+                  <input type="password" name="password" placeholder="Password" ></input><span class='errors' th:text="${password}"></span>
+                  <input type='submit' class="button" id="submit-detail-button" value="Register Yourself"></input>  
+                </form>
+                
+                
+            </div>
+</body>
+</html>

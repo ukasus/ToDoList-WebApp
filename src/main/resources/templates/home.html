@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"   href="css/MainCssFile.css"
+          th:href="@{css/MainCssFile.css}" media="screen"/>
+<meta charset="UTF-8">
+<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+ <link rel="shortcut icon" href="https://media-exp1.licdn.com/dms/image/C5103AQHy0cJj4HYarQ/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=wgiv6czSdUIERM86eUwQAc7_lG1KWl1gyU2h9HDU2LE">
+
+<title>To Do Items</title>
+</head>
+<body>
+<div id="home">
+<div id="head">
+<pre><h1>Welcome <span  th:text="${userName}"></span></h1>  </pre>
+<a href="/logout"  class='home-logout' >Logout</a>
+</div>
+
+<h2>Your Todo tasks are listed below:</h2>
+<div id='div-table'>
+
+		<table>
+	      <tbody>
+
+				<tr th:each="item: ${items}">
+					<td th:text="${item.description}" />
+					<td><a th:href="@{/deleteitem(id=${item.id})}" class="home-delete">Delete Task</a></td>
+				</tr>
+                
+			</tbody>
+		</table>
+
+		
+	</div>
+<a href="/additem"  class="home-logout">Add new Item to List</a>
+</div>
+
+</body>
+</html>
