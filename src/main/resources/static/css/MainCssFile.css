@@ -159,3 +159,20 @@ input:hover{
     border-radius: 10px;
     
 }
+
+@media screen and (max-width: 767px) {
+
+    #Login-Container{
+        width: 100%;
+    }
+    #div-input-form{
+        
+        width:100%;
+    }
+    #div-table{
+       
+        width:100%;
+       
+       
+    }
+}
