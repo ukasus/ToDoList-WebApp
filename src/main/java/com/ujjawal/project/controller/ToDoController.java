@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ujjawal.project.entity.ToDoItems;
 import com.ujjawal.project.repo.ToDoItemsRepository;
+import com.ujjawal.project.service.NextSequenceService;
 
 @Controller()
 
 public class ToDoController {
-	static int todoid=1;
 	
+	@Autowired
+	NextSequenceService nextSequenceService;
 	@Autowired
 	ToDoItemsRepository toDoItemRepo;
 	
@@ -29,12 +31,13 @@ public class ToDoController {
 	@PostMapping("/additem")
 	public String addItemPage(@RequestParam("item") String item)
 	{
+		
 		String useremail=SecurityContextHolder.getContext().getAuthentication().getName();
 		ToDoItems newitem=new ToDoItems();
 		newitem.setDescription(item);
 		newitem.setUserName(useremail);
-		newitem.setId(todoid);
-		todoid++;
+		newitem.setId(nextSequenceService.getNextSequence("customSequences"));
+		
 		
 		toDoItemRepo.save(newitem);
 		return "redirect:/";
